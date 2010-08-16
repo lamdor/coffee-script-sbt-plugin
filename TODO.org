@@ -1,0 +1,9 @@
+* CoffeeScript sbt plugin TODO's
+  :PROPERTIES:
+  :ID:       8896C78E-6D2E-4969-AA16-CCC2425E8FA3
+  :END:
+*** TODO *.coffee under subdirectories
+*** TODO configurable source dir and output
+*** TODO WAR packaging detection
+*** TODO readme
+*** TODO license (probably the same as coffeescript)
