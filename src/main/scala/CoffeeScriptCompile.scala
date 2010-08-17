@@ -15,7 +15,7 @@ trait CoffeeScriptCompile extends DefaultProject {
     coffeeScripts.get.foreach {
       coffeePath =>
       val coffeeFile = coffeePath.asFile
-      val jsDestination = new File("src/main/generated-javascript/" + coffeePath.base + ".js")
+      val jsDestination = new File("src/main/generated-javascript/" + "\\.coffee$".r.replaceFirstIn(coffeePath.relativePath, ".js"))
 
       log.info("Compiling %s" format (coffeePath.relativePath))
 

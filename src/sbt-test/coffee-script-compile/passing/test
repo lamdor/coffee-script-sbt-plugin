@@ -2,3 +2,5 @@
 
 > check-contains src/main/generated-javascript/hello_world.js "var who;"
 
+> check-contains src/main/generated-javascript/goodbye/say_goodbye.js "alert('goodbye!');"
+

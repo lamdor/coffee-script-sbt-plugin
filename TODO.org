@@ -2,7 +2,11 @@
   :PROPERTIES:
   :ID:       8896C78E-6D2E-4969-AA16-CCC2425E8FA3
   :END:
-*** TODO *.coffee under subdirectories
+*** DONE *.coffee under subdirectories
+    CLOSED: [2010-08-16 Mon 21:29]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2010-08-16 Mon 21:29]
+    :END:
 *** TODO configurable source dir and output
 *** TODO WAR packaging detection
 *** TODO readme
