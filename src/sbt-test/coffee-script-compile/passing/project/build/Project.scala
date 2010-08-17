@@ -4,7 +4,7 @@ import org.coffeescript.CoffeeScriptCompile
 import scala.io.Source
 import java.io.File
 
-class FailingProject(info: ProjectInfo) extends DefaultProject(info) with CoffeeScriptCompile {
+class Project(info: ProjectInfo) extends DefaultProject(info) with CoffeeScriptCompile {
 
   lazy val checkContains = task { args =>
     val file = Source.fromFile(new File(args(0)))

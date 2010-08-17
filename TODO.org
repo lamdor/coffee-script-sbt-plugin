@@ -7,7 +7,11 @@
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2010-08-16 Mon 21:29]
     :END:
-*** TODO configurable source dir and output
+*** DONE configurable source dir and output
+    CLOSED: [2010-08-16 Mon 22:00]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2010-08-16 Mon 22:00]
+    :END:
 *** TODO WAR packaging detection
 *** TODO readme
 *** TODO license (probably the same as coffeescript)
