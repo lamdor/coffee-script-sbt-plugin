@@ -12,6 +12,10 @@
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2010-08-16 Mon 22:00]
     :END:
+*** DONE readme
+    CLOSED: [2010-08-17 Tue 21:59]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2010-08-17 Tue 21:59]
+    :END:
 *** TODO WAR packaging detection
-*** TODO readme
-*** TODO license (probably the same as coffeescript)
+*** TODO watched paths
