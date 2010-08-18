@@ -9,12 +9,14 @@ Run `compile-coffee-script` task to compile all your CoffeeScript files under `s
 The source and output paths can be configured via coffeeScriptDirectoryPathFinder and coffeeScriptCompiledOuputDirectory properties. i.e.
 
     class Project(info: ProjectInfo) extends DefaultProject(info) {
-      coffeeScriptDirectoryPathFinder = "src" / "main" / "custom-coffee-script"
-      coffeeScriptCompiledOuputDirectory = "src/main/custom-generated-javascript"
+      override def coffeeScriptDirectoryPathFinder = "src" / "main" / "custom-coffee-script"
+      override def coffeeScriptCompiledOuputDirectory = "src/main/custom-generated-javascript"
     ...
     }
 
 See sbt's documentation on [Paths](http://code.google.com/p/simple-build-tool/wiki/Paths) for more information on the coffeeScriptDirectoryPathFinder property.
+
+CoffeeScript files are also added the watchPaths so that triggered actions will also be invoked when any CoffeeScript file changes.
 
 ## Setup ##
 
@@ -26,7 +28,7 @@ See sbt's documentation on [Paths](http://code.google.com/p/simple-build-tool/wi
 
         class Plugins(info: ProjectInfo) extends PluginDefinition(info) {
           val coffeeScriptSbtRepo = "coffeeScript sbt repo" at "http://repo.coderlukes.com"
-          val coffeeScript = "org.coffeescript % "coffee-script-sbt-plugin" % "0.9.0"
+          val coffeeScript = "org.coffeescript" % "coffee-script-sbt-plugin" % "0.9.0"
         }
 
 2. In your project file, mixin the CoffeeScriptCompile trait

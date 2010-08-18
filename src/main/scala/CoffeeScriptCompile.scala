@@ -6,8 +6,9 @@ import org.jcoffeescript.JCoffeeScriptCompiler
 import java.io.File
 
 trait CoffeeScriptCompile extends BasicScalaProject {
-  protected var coffeeScriptDirectoryPathFinder = {"src" / "main" / "coffee-script"}
-  protected var coffeeScriptCompiledOuputDirectory = {
+
+  protected def coffeeScriptDirectoryPathFinder = {"src" / "main" / "coffee-script"}
+  protected def coffeeScriptCompiledOuputDirectory = {
     if (mainArtifact.extension == "war") {
       "src/main/webapp/javascript/"
     } else {
@@ -16,6 +17,9 @@ trait CoffeeScriptCompile extends BasicScalaProject {
   }
 
   lazy val coffeeScriptPaths = (coffeeScriptDirectoryPathFinder ##) ** "*.coffee"
+
+
+  override def watchPaths = super.watchPaths +++ coffeeScriptPaths
 
   lazy val compileCoffeeScript = task {
     log.info("Compiling CoffeeScript")
