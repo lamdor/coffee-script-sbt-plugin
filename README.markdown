@@ -42,6 +42,10 @@ CoffeeScript files are also added the watchPaths so that triggered actions will 
            // ....
          }
 
+3. Optionally change the compile action to also include `coffee-script-compile`
+
+    override def compileAction = super.compileAction dependsOn(compileCoffeeScript)
+
 ## Roadmap ##
 
 See [TODO.org](TODO.org) for more information.
