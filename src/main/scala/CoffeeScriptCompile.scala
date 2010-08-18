@@ -43,5 +43,5 @@ trait CoffeeScriptCompile extends BasicScalaProject {
     }
 
     None
-  }
+  } describedAs("Compiles CoffeeScript files.")
 }
