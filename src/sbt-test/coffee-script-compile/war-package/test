@@ -1,0 +1,4 @@
+> compile-coffee-script
+
+> check-contains src/main/webapp/javascript/hello_world.js "var who;"
+

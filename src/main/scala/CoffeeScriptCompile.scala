@@ -5,9 +5,15 @@ import scala.io.Source
 import org.jcoffeescript.JCoffeeScriptCompiler
 import java.io.File
 
-trait CoffeeScriptCompile extends DefaultProject {
-  protected var coffeeScriptDirectoryPathFinder = "src" / "main" / "coffee-script"
-  protected var coffeeScriptCompiledOuputDirectory = "src/main/generated-javascript/"
+trait CoffeeScriptCompile extends BasicScalaProject {
+  protected var coffeeScriptDirectoryPathFinder = {"src" / "main" / "coffee-script"}
+  protected var coffeeScriptCompiledOuputDirectory = {
+    if (mainArtifact.extension == "war") {
+      "src/main/webapp/javascript/"
+    } else {
+      "src/main/generated-javascript/"
+    }
+  }
 
   lazy val coffeeScriptPaths = (coffeeScriptDirectoryPathFinder ##) ** "*.coffee"
 

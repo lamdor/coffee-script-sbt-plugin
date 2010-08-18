@@ -17,5 +17,9 @@
     :LOGBOOK:
     - State "DONE"       from "TODO"       [2010-08-17 Tue 21:59]
     :END:
-*** TODO WAR packaging detection
+*** DONE WAR packaging detection
+    CLOSED: [2010-08-17 Tue 22:58]
+    :LOGBOOK:
+    - State "DONE"       from "TODO"       [2010-08-17 Tue 22:58]
+    :END:
 *** TODO watched paths
