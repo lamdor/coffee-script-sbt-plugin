@@ -1,10 +1,10 @@
 coffee-script-sbt-plugin
 ==========
 
-This is a [simple-build-tool](http://simple-build-tool.googlecode.com/) plugin for copmiling [CoffeeScript](http://coffeescript.org) files into their javascript conterparts. It uses the excellent [JCoffeeScript](http://github.com/yeungda/jcoffeescript/).
+This is a [simple-build-tool](http://simple-build-tool.googlecode.com/) plugin for compiling [CoffeeScript](http://coffeescript.org) files into their javascript conterparts. It uses the excellent [JCoffeeScript](http://github.com/yeungda/jcoffeescript/).
 
 ## Usage ##
-Run `compile-coffee-script` task to compile all your CoffeeScript files under `src/main/cofffee-script/` into JavaScript. For web projects the files are compiled to under `src/main/webapp/javascript`, for other projects they will compiled to `src/main/generated-javascript/`. The file structure under the source directory will be maintained.
+Run the`compile-coffee-script` task to compile all your CoffeeScript files under `src/main/cofffee-script/` into JavaScript. For web projects the files are compiled to under `src/main/webapp/javascript`, for other projects they will compiled to `src/main/generated-javascript/`. The file structure under the source directory will be maintained.
 
 The source and output paths can be configured via coffeeScriptDirectoryPathFinder and coffeeScriptCompiledOuputDirectory properties. i.e.
 
