@@ -1,3 +1,6 @@
+#+TODO:   TODO(t) | DONE(d)
+#+OPTIONS:    todo:t
+
 * CoffeeScript sbt plugin TODO's
   :PROPERTIES:
   :ID:       8896C78E-6D2E-4969-AA16-CCC2425E8FA3
