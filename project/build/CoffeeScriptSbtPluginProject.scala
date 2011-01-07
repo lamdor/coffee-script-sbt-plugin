@@ -1,7 +1,7 @@
 import sbt._
 
 class CoffeeScriptSbtPluginProject(info: ProjectInfo) extends PluginProject(info) with test.ScalaScripted {
-  val jcoffeescript = "org.jcoffeescript" % "jcoffeescript" % "0.9.2" from "http://cloud.github.com/downloads/yeungda/jcoffeescript/jcoffeescript-0.9.2-b.jar"
+  val jcoffeescript = "org.jcoffeescript" % "jcoffeescript" % "1.0" from "http://cloud.github.com/downloads/yeungda/jcoffeescript/jcoffeescript-1.0.jar"
 
   override def scriptedSbt = "0.7.4"
   override def scriptedBufferLog = false
