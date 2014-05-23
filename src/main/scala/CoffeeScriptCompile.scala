@@ -2,11 +2,14 @@ package org.coffeescript
 
 import sbt._
 import scala.io.Source
-import org.jcoffeescript.JCoffeeScriptCompiler
 import java.io.File
 
 trait CoffeeScriptCompile extends BasicScalaProject {
 
+  private val coffeeScriptConfig = config("coffeescript") hide 
+
+  val coffeeScriptCompilerDep = "org.jcoffeescript" % "jcoffeescript" % "1.0" % "coffeescript" from "http://cloud.github.com/downloads/yeungda/jcoffeescript/jcoffeescript-1.0.jar"
+ 
   protected def coffeeScriptDirectoryPathFinder = {"src" / "main" / "coffee-script"}
   protected def coffeeScriptCompiledOutputPath = {
     if (mainArtifact.extension == "war") {
@@ -20,13 +23,22 @@ trait CoffeeScriptCompile extends BasicScalaProject {
 
   lazy val coffeeScriptPaths = (coffeeScriptDirectoryPathFinder ##) ** "*.coffee"
 
-
   override def watchPaths = super.watchPaths +++ coffeeScriptPaths
+
+  private lazy val coffeeScriptCompilerClasspath = fullClasspath(coffeeScriptConfig)
+
+  private lazy val coffeeScriptCompiler =
+    Class.forName(
+      "org.jcoffeescript.JCoffeeScriptCompiler"
+      , true
+      , ClasspathUtilities.toLoader(coffeeScriptCompilerClasspath)
+    ).getConstructor()
+    .newInstance()
+    .asInstanceOf[{ def compile(source:String):String }]
 
   lazy val compileCoffeeScript = dynamic(compileCoffeeTasks) describedAs
     "Compiles CoffeeScript files."
   
-  lazy private val coffeeCompiler = new JCoffeeScriptCompiler()
   def compileCoffeeTasks = task { None } dependsOn ({
     coffeeScriptPaths.get.map { coffeePath =>
       val coffeeFile = coffeePath.asFile
@@ -38,7 +50,8 @@ trait CoffeeScriptCompile extends BasicScalaProject {
         log.info("CoffeeScript compiling %s" format (coffeePath.relativePath))
 
         val coffeeSource =  Source.fromFile(coffeeFile).mkString
-        val compiledJs = coffeeCompiler.compile(coffeeSource)
+
+        val compiledJs = coffeeScriptCompiler.compile(coffeeSource)
 
         new File(jsDestination.getParent).mkdirs()
         FileUtilities.write(jsDestination, compiledJs, log)
